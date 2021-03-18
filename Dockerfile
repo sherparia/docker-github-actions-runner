@@ -1,6 +1,10 @@
 # hadolint ignore=DL3007
 FROM myoung34/github-runner-base:latest
-LABEL maintainer="myoung34@my.apsu.edu"
+LABEL maintainer="adascalitei.victor@gmail.com"
+
+# Add kubernetes
+RUN curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl \
+    && sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 ENV AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
 RUN mkdir -p /opt/hostedtoolcache
